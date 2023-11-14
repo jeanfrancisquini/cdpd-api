@@ -1,4 +1,3 @@
-const TYPES = require('tedious');
 
 const knex = require('knex')({
   client: 'mssql',
