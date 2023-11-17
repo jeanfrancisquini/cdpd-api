@@ -761,7 +761,7 @@ console.log(studentId,
 
                 planejamento_anamnese = await Promise.all(planejamento_anamnese)
 
-                obj.planningAnamneses = planejamento_anamnese
+                obj.planningAnamneses = planejamento_anamnese[0]
                 //#endregion
                 
                 //#region planejamento_historico_patologico
@@ -794,7 +794,7 @@ console.log(studentId,
 
                 planejamento_historico_patologico = await Promise.all(planejamento_historico_patologico)
 
-                obj.planningPathologicalHistories = planejamento_historico_patologico
+                obj.planningPathologicalHistories = planejamento_historico_patologico[0]
 
                 //#endregion
 
@@ -816,7 +816,7 @@ console.log(studentId,
 
                 planejamento_avaliacao_funcional = await Promise.all(planejamento_avaliacao_funcional)
 
-                obj.planningFuncionalEvaluations = planejamento_avaliacao_funcional
+                obj.planningFuncionalEvaluations = planejamento_avaliacao_funcional[0]
 
                 //#endregion
 
@@ -841,7 +841,7 @@ console.log(studentId,
 
                 planejamento_avaliacao_postural = await Promise.all(planejamento_avaliacao_postural)
 
-                obj.planningPosturalEvaluations = planejamento_avaliacao_postural
+                obj.planningPosturalEvaluations = planejamento_avaliacao_postural[0]
 
                 //#endregion
 
@@ -857,7 +857,7 @@ console.log(studentId,
 
                 planejamento_historico_familiar = await Promise.all(planejamento_historico_familiar)
 
-                obj.planningFamilyHistories = planejamento_historico_familiar
+                obj.planningFamilyHistories = planejamento_historico_familiar[0]
 
                 //#endregion
 
@@ -891,7 +891,7 @@ console.log(studentId,
 
                 planejamento_fracionamento_corporal = await Promise.all(planejamento_fracionamento_corporal)
 
-                obj.planningBodyFractionations = planejamento_fracionamento_corporal
+                obj.planningBodyFractionations = planejamento_fracionamento_corporal[0]
 
                 //#endregion
 

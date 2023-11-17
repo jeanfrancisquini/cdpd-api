@@ -1,4 +1,5 @@
 const database = require('../database/connection')
+const moment = require('moment');
 
 class ScheduleController{
     post(request,response){
@@ -111,7 +112,7 @@ class ScheduleController{
                 })
     }
 
-    getSchedule(request,response){
+    async getSchedule(request,response){
         const {
             userId ,
             activityId ,
@@ -119,7 +120,6 @@ class ScheduleController{
             time ,
           } = request.body;
 
-          console.log(request.body)
         database.select("id",
                         "id_aluno as idStudent" ,
                         "id_servico as idService" ,
@@ -127,7 +127,7 @@ class ScheduleController{
                         "id_professor as idTeacher" ,        
                         "id_agendador as idScheduler" ,
                         "data as date" ,
-                        "horario as time" ,
+                        "horario as time",
                         "id_lancamento as idPosting",
                         "checking as checking" ,
                         "checkout as checkout")
@@ -147,9 +147,19 @@ class ScheduleController{
                         queryBuilder.where({"id_atividade": activityId ?? null})
                     }                    
                 })   
-                .table("agendamento").then(data => {
-                    console.log(data);
-                    response.json(data);
+                .table("agendamento").then(async data => {
+                    //console.log(data);
+
+                    var resultsPromise = data.map(async (obj) => {
+
+                        obj.time = moment(obj.time).format('HH:mm:ss')
+                        return obj
+                    })
+
+                    response.json(await Promise.all(resultsPromise)); 
+
+                    
+                    //response.json(data);
                 }).catch(error => {
                     console.log(error);
                 })
