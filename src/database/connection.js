@@ -1,12 +1,13 @@
 
 const knex = require('knex')({
   client: 'mssql',
-  connection: {
-    server: "cdpd-db.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
-    user: "admin",
-    password: "x5Cjy4fPe5IL5fh",
-    database: "cdpd-database"    
-  }
+  connection: "mssql://admin:x5Cjy4fPe5IL5fh@cdpd-db.c1qhsihaqmhn.us-east-2.rds.amazonaws.com/cdpd-database",
+  // connection: {
+  //   server: "cdpd-db.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
+  //   user: "admin",
+  //   password: "x5Cjy4fPe5IL5fh",
+  //   database: "cdpd-database"    
+  // }
 });
 
 module.exports = knex
