@@ -1,6 +1,6 @@
 
 const knex = require('knex')({
-  client: 'asdasdasd',
+  client: 'mysql',
   connection: {
     host: "cdpd-db.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
     user: "admin",
