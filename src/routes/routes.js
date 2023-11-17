@@ -27,6 +27,7 @@ const UserController = require('../controllers/User/UserController');
 const PlanningController = require('../controllers/Planning/PlanningController');
 */
 
+/*
 //#region def_tipo_usuario
 router.get('/api/DefUserType',DefUserTypeController.get);
 router.post('/api/DefUserType',DefUserTypeController.post);
@@ -34,7 +35,7 @@ router.put('/api/DefUserType',DefUserTypeController.put);
 router.delete('/api/DefUserType',DefUserTypeController.delete);
 router.get('/api/DefUserTypeSTP',DefUserTypeController.spTeste);
 //#endregion
-/*
+
 //#region def_tipo_pagamento
 router.get('/api/DefTypePayment',DefTypePaymentController.get);
 router.post('/api/DefTypePayment',DefTypePaymentController.post);
