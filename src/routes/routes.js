@@ -1,4 +1,4 @@
-//const connection = require('../database/connection');
+const connection = require('../database/connection');
 const express = require('express');
 const router = express.Router();
 //const DefUserTypeController = require('../controllers/Def/DefUserTypeController');
