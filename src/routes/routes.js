@@ -1,8 +1,8 @@
 const connection = require('../database/connection');
 const express = require('express');
 const router = express.Router();
-//const DefUserTypeController = require('../controllers/Def/DefUserTypeController');
-/*const DefTypePaymentController = require('../controllers/Def/DefTypePaymentController');
+const DefUserTypeController = require('../controllers/Def/DefUserTypeController');
+const DefTypePaymentController = require('../controllers/Def/DefTypePaymentController');
 const DefActivityController = require('../controllers/Def/DefActivityController');
 const DefPeriodController = require('../controllers/Def/DefPeriodController');
 const DefStatusPlanController = require('../controllers/Def/DefStatusPlanController');
@@ -25,9 +25,7 @@ const ScheduleController = require('../controllers/ScheduleController');
 const ProfileController = require('../controllers/ProfileController');
 const UserController = require('../controllers/User/UserController');
 const PlanningController = require('../controllers/Planning/PlanningController');
-*/
 
-/*
 //#region def_tipo_usuario
 router.get('/api/DefUserType',DefUserTypeController.get);
 router.post('/api/DefUserType',DefUserTypeController.post);
@@ -205,5 +203,5 @@ router.delete('/api/User/UserDelete',UserController.UserDelete);
 router.get('/api/User/GetDashboard',UserController.GetDashboard);
 router.post('/api/User/ResetPassword',UserController.ResetPassword);
 //#endregion
-*/
+
 module.exports = router;
