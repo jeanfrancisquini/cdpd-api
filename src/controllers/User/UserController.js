@@ -286,7 +286,7 @@ class UserController{
         database.raw('exec stp_dashboard ?',[id])
         .then(data => {
             console.log(data);
-            response.json(data);
+            response.json(data[0]);
         }).catch(error => {
             console.log(error);
         })
