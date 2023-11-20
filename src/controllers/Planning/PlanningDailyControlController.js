@@ -72,7 +72,7 @@ class PlanningDailyControlController{
                 })
     }
 
-    get(request,response){
+    getById(request,response){
 
         const {id} = request.query
 

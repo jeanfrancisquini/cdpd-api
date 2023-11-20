@@ -151,7 +151,7 @@ router.get('/api/PlanningDailyControl',PlanningDailyControlController.get);
 router.post('/api/PlanningDailyControl',PlanningDailyControlController.post);
 router.put('/api/PlanningDailyControl',PlanningDailyControlController.put);
 router.delete('/api/PlanningDailyControl',PlanningDailyControlController.delete);
-router.get('/api/PlanningDailyControl/GetById',PlanningDailyControlController.get);
+router.get('/api/PlanningDailyControl/GetById',PlanningDailyControlController.getById);
 //#endregion
 
 //#region planejamento
