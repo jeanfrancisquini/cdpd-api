@@ -268,13 +268,19 @@ class UserController{
         response.json((await Promise.all(resultsPromise))[0]);   
     }
 
-    UserDelete(request,response){
+    async UserDelete(request,response){
         const {id} = request.query
 
         database.raw('exec stp_cdpd_delete_usuario ?',[id])
-        .then(data => {
-            console.log(data);
-            response.json(data);
+        .then(async data => {
+
+            var resultsPromise = data.map(async (obj) => {
+
+                obj.Horario = moment(obj.Horario).format('HH:mm:ss')
+                return obj
+            })
+
+            response.json(await Promise.all(resultsPromise)); 
         }).catch(error => {
             console.log(error);
         })
