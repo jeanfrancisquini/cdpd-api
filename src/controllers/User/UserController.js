@@ -286,12 +286,7 @@ class UserController{
         database.raw('exec stp_dashboard ?',[id])
         .then(data => {
             console.log(data);
-
-            var result = data[0];
-            
-            result.Horario = moment(result.Horario).format('HH:mm:ss')
-
-            response.json(result);
+            response.json(data[0]);
         }).catch(error => {
             console.log(error);
         })
