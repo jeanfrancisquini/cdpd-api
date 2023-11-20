@@ -268,11 +268,24 @@ class UserController{
         response.json((await Promise.all(resultsPromise))[0]);   
     }
 
-    async UserDelete(request,response){
+    UserDelete(request,response){
         const {id} = request.query
 
         database.raw('exec stp_cdpd_delete_usuario ?',[id])
+        .then(data => {
+            console.log(data);
+            response.json(data);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    async GetDashboard(request,response){
+        const {id} = request.query
+
+        database.raw('exec stp_dashboard ?',[id])
         .then(async data => {
+            console.log(data);
 
             var resultsPromise = data.map(async (obj) => {
 
@@ -280,18 +293,8 @@ class UserController{
                 return obj
             })
 
-            response.json(await Promise.all(resultsPromise)); 
-        }).catch(error => {
-            console.log(error);
-        })
-    }
+            response.json(await Promise.all(resultsPromise[0]));
 
-    GetDashboard(request,response){
-        const {id} = request.query
-
-        database.raw('exec stp_dashboard ?',[id])
-        .then(data => {
-            console.log(data);
             response.json(data[0]);
         }).catch(error => {
             console.log(error);
