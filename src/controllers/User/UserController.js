@@ -280,20 +280,18 @@ class UserController{
         })
     }
 
-    async GetDashboard(request,response){
+    GetDashboard(request,response){
         const {id} = request.query
 
         database.raw('exec stp_dashboard ?',[id])
-        .then(async data => {
+        .then(data => {
             console.log(data);
 
-            var resultsPromise = data.map(async (obj) => {
+            var result = data[0];
+            
+            result.Horario = moment(result.Horario).format('HH:mm:ss')
 
-                obj.Horario = moment(obj.Horario).format('HH:mm:ss')
-                return obj
-            })
-
-            response.json((await Promise.all(resultsPromise))[0]);
+            response.json(result);
         }).catch(error => {
             console.log(error);
         })
