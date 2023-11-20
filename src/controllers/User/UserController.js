@@ -293,7 +293,7 @@ class UserController{
                 return obj
             })
 
-            response.json(await Promise.all(resultsPromise[0]));
+            response.json((await Promise.all(resultsPromise))[0]);
         }).catch(error => {
             console.log(error);
         })
