@@ -1,5 +1,5 @@
 const database = require('../../database/connection')
-
+const moment = require('moment');
 class UserController{
     
     post(request,response){
@@ -287,6 +287,7 @@ class UserController{
         .then(data => {
             console.log(data);
             var teste = data[0];
+            teste.horario = moment(teste.horario).format('HH:mm:ss');
             response.json(teste);
         }).catch(error => {
             console.log(error);
