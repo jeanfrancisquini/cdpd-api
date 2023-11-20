@@ -183,6 +183,7 @@ router.put('/api/Schedule',ScheduleController.put);
 router.delete('/api/Schedule',ScheduleController.delete);
 router.post('/api/Schedule/GetSchedule',ScheduleController.getSchedule);
 router.post('/api/Schedule/ScheduleBulkAdd',ScheduleController.scheduleBulkAdd);
+router.get('/api/Schedule/GetById',ScheduleController.GetById);
 //#endregion
 
 //#region perfil

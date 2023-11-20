@@ -186,6 +186,32 @@ class ScheduleController{
             console.log(error);
         })
     }
+
+    GetById(request,response){
+        const {
+            userId,
+          } = request.query;
+
+        database.select("id",
+                        "id_aluno as idStudent" ,
+                        "id_servico as idService" ,
+                        "id_atividade as idActivity" ,
+                        "id_professor as idTeacher" ,        
+                        "id_agendador as idScheduler" ,
+                        "data as date" ,
+                        "horario as time" ,
+                        "id_lancamento as idPosting",
+                        "checking as checking" ,
+                        "checkout as checkout")
+                .table("agendamento")
+                .where({"id_aluno": userId})
+                .then(data => {
+                    console.log(data);
+                    response.json(data);
+                }).catch(error => {
+                    console.log(error);
+                })
+    }
 }
 
 module.exports = new ScheduleController();
