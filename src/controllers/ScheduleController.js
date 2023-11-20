@@ -207,7 +207,7 @@ class ScheduleController{
                 .where({"id": userId})
                 .then(data => {
                     console.log(data);
-                    response.json(data);
+                    response.json(data[0]);
                 }).catch(error => {
                     console.log(error);
                 })
