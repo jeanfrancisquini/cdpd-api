@@ -294,8 +294,6 @@ class UserController{
             })
 
             response.json(await Promise.all(resultsPromise[0]));
-
-            response.json(data[0]);
         }).catch(error => {
             console.log(error);
         })
