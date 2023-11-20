@@ -58,8 +58,9 @@ class ScheduleController{
     }
 
     put(request,response){
-        const {id} = request.query
+        //const {id} = request.query
         const {
+            id,
             idStudent ,
             idService ,
             idActivity ,
