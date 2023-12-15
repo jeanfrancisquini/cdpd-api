@@ -205,7 +205,7 @@ class ScheduleController{
                         "checking as checking" ,
                         "checkout as checkout")
                 .table("agendamento")
-                .where({"id": userId})
+                .where({"id_aluno": userId})
                 .then(data => {
                     console.log(data);
                     response.json(data[0]);
