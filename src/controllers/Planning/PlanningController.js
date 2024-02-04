@@ -720,7 +720,7 @@ console.log(studentId,
     month2,
     month3,
     profile)
-        await database.raw('exec stp_cdpd_planejamento_criacao ?,?,?,?,?',[studentId,month1,month2,month3,profile])
+        await database.raw('CALL stp_cdpd_planejamento_criacao (?,?,?,?,?)',[studentId,month1,month2,month3,profile])
         .then(async data => {
             var planejamento, 
                 planejamento_anamnese, 
