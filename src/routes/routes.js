@@ -180,7 +180,7 @@ router.get('/api/Notification/Deleted',NotificationController.deleted);
 router.get('/api/Schedule',ScheduleController.get);
 router.post('/api/Schedule',ScheduleController.post);
 router.put('/api/Schedule',ScheduleController.put);
-router.delete('/api/Schedule',ScheduleController.delete);
+router.put('/api/Schedule/Delete',ScheduleController.delete);
 router.post('/api/Schedule/GetSchedule',ScheduleController.getSchedule);
 router.post('/api/Schedule/ScheduleBulkAdd',ScheduleController.scheduleBulkAdd);
 router.get('/api/Schedule/GetById',ScheduleController.GetById);

@@ -2,7 +2,7 @@ const database = require('../database/connection')
 const moment = require('moment');
 
 class ScheduleController{
-    post(request,response){
+    async post(request,response){
         const {
                 idStudent ,
                 idService ,
@@ -29,9 +29,26 @@ class ScheduleController{
                     "checkout": checkout
                 })
                 .table("agendamento")
-                .then(data => {
-                    console.log(data)
-                    response.json({message: "Agendamento criado com sucesso!"})
+                .returning(["id as id","id_aluno as idStudent" ,
+                            "id_servico as idService" ,
+                            "id_atividade as idActivity" ,
+                            "id_professor as idTeacher" ,        
+                            "id_agendador as idScheduler" ,
+                            "data as date" ,
+                            "horario as time" ,
+                            "id_lancamento as idPosting" ,
+                            "checking as checking" ,
+                            "checkout as checkout"])
+                .then(async data => {
+                    var resultsPromise = data.map(async (obj) => {
+
+                        obj.time = moment(obj.time).format('HH:mm:ss')
+                        return obj
+                    })
+
+                    var teste = await Promise.all(resultsPromise);
+                    console.log(teste);
+                    response.json(teste[0]); 
                 }).catch(error => {
                     console.log(error);
                 })
@@ -88,7 +105,7 @@ class ScheduleController{
                     "checking": checking ,
                     "checkout": checkout
                 })
-                .table("agendamento")
+                .table("agendamento")                
                 .then(data => {
                     console.log(data)
                     response.json({message: "Agendamento atualizado com sucesso!"})
@@ -98,7 +115,7 @@ class ScheduleController{
     }
 
     delete(request,response){
-        const {id} = request.query
+        const {id} = request.body
 
         console.log(id);
 
