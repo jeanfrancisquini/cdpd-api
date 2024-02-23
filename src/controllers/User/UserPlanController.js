@@ -6,7 +6,12 @@ class UserPlanController{
         const {
                 idPlan,
                 idUser,
-                idStatusPlan
+                idStatusPlan,
+                segunda,
+                terca,
+                quarta,
+                quinta,
+                sexta
               } = request.body;
         
         console.log(request.body);
@@ -14,7 +19,12 @@ class UserPlanController{
         database.insert({
                     "id_plano":idPlan,
                     "id_usuario":idUser,
-                    "id_status_plano":idStatusPlan
+                    "id_status_plano":idStatusPlan,
+                    "segunda":segunda,
+                    "terca":terca,
+                    "quarta":quarta,
+                    "quinta":quinta,
+                    "sexta":sexta,
                 })
                 .table("usuario_plano")
                 .then(data => {
@@ -29,7 +39,12 @@ class UserPlanController{
         database.select("id",
                         "id_plano as idPlan",
                         "id_usuario as idUser",
-                        "id_status_plano as idStatusPlan")
+                        "id_status_plano as idStatusPlan",
+                        "segunda as segunda",
+                        "terca as terca",
+                        "quarta as quarta",
+                        "quinta as quinta",
+                        "sexta as sexta")
                 .table("usuario_plano").then(data => {
                     console.log(data);
                     response.json(data);
@@ -49,7 +64,12 @@ class UserPlanController{
                 id,
                 idPlan,
                 idUser,
-                idStatusPlan
+                idStatusPlan,
+                segunda,
+                terca,
+                quarta,
+                quinta,
+                sexta
             } = obj
 
             database.where({id_usuario: idUser?? 0})
@@ -65,7 +85,12 @@ class UserPlanController{
             database.select("id",
                     "id_plano as idPlan",
                     "id_usuario as idUser",
-                    "id_status_plano as idStatusPlan")
+                    "id_status_plano as idStatusPlan",
+                    "segunda as segunda",
+                    "terca as terca",
+                    "quarta as quarta",
+                    "quinta as quinta",
+                    "sexta as sexta")
             .where({"id_plano": idPlan?? 0,"id_usuario": idUser?? 0,"id_status_plano": idStatusPlan?? 0})
             .table("usuario_plano").then(data => {
                 
@@ -74,7 +99,12 @@ class UserPlanController{
                     .update({
                         "id_plano":idPlan,
                         "id_usuario":idUser,
-                        "id_status_plano":idStatusPlan
+                        "id_status_plano":idStatusPlan,
+                        "segunda":segunda,
+                        "terca":terca,
+                        "quarta":quarta,
+                        "quinta":quinta,
+                        "sexta":sexta,
                     })
                     .table("usuario_plano")
                     .then(data => {
@@ -89,7 +119,12 @@ class UserPlanController{
                     database.insert({
                         "id_plano":idPlan,
                         "id_usuario":idUser,
-                        "id_status_plano":idStatusPlan
+                        "id_status_plano":idStatusPlan,
+                        "segunda":segunda,
+                        "terca":terca,
+                        "quarta":quarta,
+                        "quinta":quinta,
+                        "sexta":sexta,
                     })
                     .table("usuario_plano")
                     .then(data => {

@@ -65,7 +65,13 @@ class UserController{
             atributo2 = await database.select("id",
                                               "id_plano as idPlan",
                                               "id_usuario as idUser",
-                                              "id_status_plano as idStatusPlan")
+                                              "id_status_plano as idStatusPlan",
+                                              "segunda as segunda",
+                                              "terca as terca",
+                                              "quarta as quarta",
+                                              "quinta as quinta",
+                                              "sexta as sexta"
+                                              )
                                       .table("usuario_plano")
                                       .where({"id_usuario": obj.id})
 
@@ -226,7 +232,12 @@ class UserController{
             atributo2 = await database.select("id",
                                               "id_plano as idPlan",
                                               "id_usuario as idUser",
-                                              "id_status_plano as idStatusPlan")
+                                              "id_status_plano as idStatusPlan",
+                                              "segunda as segunda",
+                                              "terca as terca",
+                                              "quarta as quarta",
+                                              "quinta as quinta",
+                                              "sexta as sexta")
                                       .table("usuario_plano")
                                       .where({"id_usuario": obj.id})
 
