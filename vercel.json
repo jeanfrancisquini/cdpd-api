@@ -15,10 +15,5 @@
   "crons": [{
     "path": "/api/cron",
     "schedule": "* * * * *"
-  }],
-  "git": {
-    "deploymentEnabled": {
-      "main": false
-    }
-  }
+  }]
 }
