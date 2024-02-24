@@ -25,6 +25,7 @@ const ScheduleController = require('../controllers/ScheduleController');
 const ProfileController = require('../controllers/ProfileController');
 const UserController = require('../controllers/User/UserController');
 const PlanningController = require('../controllers/Planning/PlanningController');
+const cron = require('../api/cron');
 
 //#region def_tipo_usuario
 router.get('/api/DefUserType',DefUserTypeController.get);
@@ -203,6 +204,7 @@ router.get('/api/User/GetUser',UserController.getUser);
 router.delete('/api/User/UserDelete',UserController.UserDelete);
 router.get('/api/User/GetDashboard',UserController.GetDashboard);
 router.post('/api/User/ResetPassword',UserController.ResetPassword);
+router.get('/api/cron',cron.default);
 //#endregion
 
 module.exports = router;
