@@ -56,3 +56,34 @@ app.listen(4000, () => {
 app.get('/',(request,response)=>{
     response.send("Aplicação rodando na porta 4000")
  })
+
+
+ app.get('/api/stp_job_checkout_automatico_depois_90',(request,response)=>{
+    database.raw('exec stp_job_checkout_automatico_depois_90',[])
+        .then(data => {
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        })
+    console.log("Executando stp_job_checkout_automatico_depois_90")
+ })
+
+ app.get('/api/stp_job_controle_diario_nao_preenchido',(request,response)=>{
+    database.raw('exec stp_job_controle_diario_nao_preenchido',[])
+        .then(data => {
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        })
+    console.log("Executando stp_job_controle_diario_nao_preenchido")
+ })
+
+ app.get('/api/stp_job_gera_automatico_agendamento',(request,response)=>{
+    database.raw('exec stp_job_gera_automatico_agendamento',[])
+        .then(data => {
+            console.log(data);
+        }).catch(error => {
+            console.log(error);
+        })
+    console.log("Executando stp_job_gera_automatico_agendamento")
+ })
