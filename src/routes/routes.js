@@ -205,6 +205,7 @@ router.delete('/api/User/UserDelete',UserController.UserDelete);
 router.get('/api/User/GetDashboard',UserController.GetDashboard);
 router.post('/api/User/ResetPassword',UserController.ResetPassword);
 router.get('/api/cron',cron.default);
+router.post('/api/cron',cron.default);
 //#endregion
 
 module.exports = router;
