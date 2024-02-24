@@ -66,6 +66,7 @@ app.get('/',(request,response)=>{
             console.log(error);
         })
     console.log("Executando stp_job_checkout_automatico_depois_90")
+    response.send("Executando stp_job_checkout_automatico_depois_90")
  })
 
  app.get('/api/stp_job_controle_diario_nao_preenchido',(request,response)=>{
@@ -76,6 +77,7 @@ app.get('/',(request,response)=>{
             console.log(error);
         })
     console.log("Executando stp_job_controle_diario_nao_preenchido")
+    response.send("Executando stp_job_controle_diario_nao_preenchido")
  })
 
  app.get('/api/stp_job_gera_automatico_agendamento',(request,response)=>{
@@ -86,4 +88,5 @@ app.get('/',(request,response)=>{
             console.log(error);
         })
     console.log("Executando stp_job_gera_automatico_agendamento")
+    response.send("Executando stp_job_gera_automatico_agendamento")
  })
