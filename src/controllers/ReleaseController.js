@@ -7,12 +7,13 @@ class ReleaseController{
             userId,
             activityId,
             value,
-            typePaymentId
+            typePaymentId,
+            obs
           } = request.body;
 
 
 
-        database.raw('exec stp_grava_lancamento ?,?,?,?',[userId,value,activityId,typePaymentId])
+        database.raw('exec stp_grava_lancamento ?,?,?,?,?',[userId,value,activityId,typePaymentId,obs])
         .then(data => {
             //console.log(data);
             response.json(data[0]);
@@ -34,6 +35,7 @@ class ReleaseController{
                         "data_validade as nextPayment",
                         "id_tipo_pagamento as idTypePayment",
                         "id_atividade as idActivity",
+                        "obs"
                         )
                     .modify(function(queryBuilder) {
                 
