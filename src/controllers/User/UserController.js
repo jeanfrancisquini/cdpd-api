@@ -82,7 +82,8 @@ class UserController{
                                                     "id_tipo_pagamento as idTypePayment",
                                                     "preco as price",
                                                     "id_atividade as idActivity",
-                                                    "id_periodo as idPeriod")
+                                                    "id_periodo as idPeriod",
+                                                    "valor_proporcional as valorProporcional")
                                             .table("def_plano")
                                             .where({"id": obj2.idPlan})
 
@@ -248,7 +249,8 @@ class UserController{
                                                     "id_tipo_pagamento as idTypePayment",
                                                     "preco as price",
                                                     "id_atividade as idActivity",
-                                                    "id_periodo as idPeriod")
+                                                    "id_periodo as idPeriod",
+                                                    "valor_proporcional as valorProporcional")
                                             .table("def_plano")
                                             .where({"id": obj2.idPlan})
 

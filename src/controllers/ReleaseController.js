@@ -14,8 +14,8 @@ class ReleaseController{
 
         database.raw('exec stp_grava_lancamento ?,?,?,?',[userId,value,activityId,typePaymentId])
         .then(data => {
-            console.log(data);
-            response.json(data);
+            //console.log(data);
+            response.json(data[0]);
         }).catch(error => {
             console.log(error);
         })

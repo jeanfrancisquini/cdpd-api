@@ -3,7 +3,7 @@ const database = require('../../database/connection')
 class DefPlanController{
     
     post(request,response){
-        const {description,frequency,idTypePayment,price,idActivity,idPeriod} = request.body;
+        const {description,frequency,idTypePayment,price,idActivity,idPeriod,valorProporcional} = request.body;
 
         database.insert({
                     "descricao": description,
@@ -11,7 +11,8 @@ class DefPlanController{
                     "id_tipo_pagamento": idTypePayment,
                     "preco": price,
                     "id_atividade": idActivity,
-                    "id_periodo": idPeriod
+                    "id_periodo": idPeriod,
+                    "valor_proporcional": valorProporcional
                 })
                 .table("def_plano")
                 .then(data => {
@@ -29,9 +30,12 @@ class DefPlanController{
                         "id_tipo_pagamento as idTypePayment",
                         "preco as price",
                         "id_atividade as idActivity",
-                        "id_periodo as idPeriod"
+                        "id_periodo as idPeriod",
+                        "valor_proporcional as valorProporcional"
                         )
-                .table("def_plano").then(data => {
+                .table("def_plano")
+                .orderBy("descricao")
+                .then(data => {
                     console.log(data);
                     response.json(data);
                 }).catch(error => {
@@ -41,7 +45,7 @@ class DefPlanController{
 
     put(request,response){
         const {id} = request.query
-        const {description,frequency,idTypePayment,price,idActivity,idPeriod} = request.body;
+        const {description,frequency,idTypePayment,price,idActivity,idPeriod,valorProporcional} = request.body;
 
         database.where({id: id})
                 .update({
@@ -50,7 +54,8 @@ class DefPlanController{
                     "id_tipo_pagamento": idTypePayment,
                     "preco": price,
                     "id_atividade": idActivity,
-                    "id_periodo": idPeriod
+                    "id_periodo": idPeriod,
+                    "valor_proporcional": valorProporcional
                 })
                 .table("def_plano")
                 .then(data => {

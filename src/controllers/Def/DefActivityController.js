@@ -3,10 +3,11 @@ const database = require('../../database/connection')
 class DefActivityController{
     
     post(request,response){
-        const {description} = request.body;
+        const {description, valorMatricula} = request.body;
 
         database.insert({
-                    "descricao":description
+                    "descricao":description,
+                    "valor_matricula": valorMatricula
                 })
                 .table("def_atividade")
                 .then(data => {
@@ -19,7 +20,9 @@ class DefActivityController{
 
     get(request,response){
         database.select("id",
-                        "descricao as description")
+                        "descricao as description",
+                        "valor_matricula as valorMatricula"
+                    )
                 .table("def_atividade").then(data => {
                     console.log(data);
                     response.json(data);
@@ -30,11 +33,12 @@ class DefActivityController{
 
     put(request,response){
         const {id} = request.query
-        const {description} = request.body;
+        const {description,valorMatricula} = request.body;
 
         database.where({id: id})
                 .update({
-                    "descricao": description
+                    "descricao": description,
+                    "valor_matricula": valorMatricula
                 })
                 .table("def_atividade")
                 .then(data => {
