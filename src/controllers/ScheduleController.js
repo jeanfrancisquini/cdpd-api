@@ -90,7 +90,7 @@ class ScheduleController{
             checkout
           } = request.body;
 
-        console.log(id);
+        console.log(request.body);
 
         database.where({id: id})
                 .update({
@@ -130,6 +130,7 @@ class ScheduleController{
                 })
     }
 
+
     async getSchedule(request,response){
         const {
             userId ,
@@ -138,49 +139,21 @@ class ScheduleController{
             time ,
           } = request.body;
 
-        database.select("id",
-                        "id_aluno as idStudent" ,
-                        "id_servico as idService" ,
-                        "id_atividade as idActivity" ,
-                        "id_professor as idTeacher" ,        
-                        "id_agendador as idScheduler" ,
-                        "data as date" ,
-                        "horario as time",
-                        "id_lancamento as idPosting",
-                        "checking as checking" ,
-                        "checkout as checkout")
-                .modify(function(queryBuilder) {
-                    
-                    if (userId != null) {
-                        console.log("Entrou")
-                        queryBuilder.where({"id_aluno": userId ?? null})
-                    }
-                    if (date != null) {
-                        queryBuilder.where({"data": date ?? null})
-                    }
-                    if (time != null) {
-                        queryBuilder.where({"horario": time ?? null})
-                    }
-                    if (activityId != null) {
-                        queryBuilder.where({"id_atividade": activityId ?? null})
-                    }                    
-                })   
-                .table("agendamento").then(async data => {
-                    //console.log(data);
 
-                    var resultsPromise = data.map(async (obj) => {
 
-                        obj.time = moment(obj.time).format('HH:mm:ss')
-                        return obj
-                    })
+        database.raw('exec stp_busca_agendamento ?,?,?,?',[userId ?? null,activityId?? null,date?? null,time?? null])
+          .then(async data => {
+                var resultsPromise = data.map(async (obj) => {
 
-                    response.json(await Promise.all(resultsPromise)); 
-
-                    
-                    //response.json(data);
-                }).catch(error => {
-                    console.log(error);
+                    obj.time = moment(obj.time).format('HH:mm:ss')
+                    return obj
                 })
+
+                response.json(await Promise.all(resultsPromise)); 
+          }).catch(error => {
+              console.log(error);
+          })
+        
     }
 
     scheduleBulkAdd(request,response){
