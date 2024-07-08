@@ -1,4 +1,5 @@
 const database = require('../database/connection')
+const moment = require('moment');
 
 class ReportController{
 
@@ -14,6 +15,25 @@ class ReportController{
         .then(data => {
             console.log(data);
             response.json(data);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+    async getReportSchedule(request,response){
+        
+        const {data} = request.body;
+        console.log(data)
+
+        database.raw("exec stp_relatorio_horarios ?",[data ?? null])
+        .then(async data => {
+            var resultsPromise = data.map(async (obj) => {
+
+                obj.horario = moment(obj.horario).format('HH:mm:ss')
+                return obj
+            })
+
+            response.json(await Promise.all(resultsPromise)); 
         }).catch(error => {
             console.log(error);
         })

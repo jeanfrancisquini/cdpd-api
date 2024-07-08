@@ -170,6 +170,7 @@ router.put('/api/Planning',PlanningController.put);
 
 //#region relatorio
 router.post('/api/Report/GetReportCharacteristics',ReportController.get);
+router.post('/api/Report/GetReportSchedule',ReportController.getReportSchedule);
 //#endregion
 
 //#region notificacao
