@@ -211,7 +211,7 @@ router.post('/api/User/ResetPassword',UserController.ResetPassword);
 //#endregion
 
 //#region lançamento
-router.post('/api/Release',ReleaseController.get);
+router.post('/api/ReleaseConsult',ReleaseController.get);
 router.post('/api/Release',ReleaseController.post);
 //#endregion
 

@@ -8,12 +8,16 @@ class ReleaseController{
             activityId,
             value,
             typePaymentId,
-            obs
+            obs,
+            scheduleDate,
+            time,
+            isSingleLesson,
+            isAvaliation,      
           } = request.body;
 
 
 
-        database.raw('exec stp_grava_lancamento ?,?,?,?,?',[userId,value,activityId,typePaymentId,obs])
+        database.raw('exec stp_grava_lancamento ?,?,?,?,?,?,?,?,?',[userId,value,activityId,typePaymentId,obs,scheduleDate,time,isSingleLesson,isAvaliation])
         .then(data => {
             //console.log(data);
             response.json(data[0]);
