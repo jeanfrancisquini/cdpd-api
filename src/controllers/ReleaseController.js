@@ -29,7 +29,7 @@ class ReleaseController{
           } = request.body;
 
 
-        database.raw('exec stp_busca_agendamento ?,?,?,?',[userId ?? null,activityId?? null])
+        database.raw('exec stp_busca_agendamento ?,?',[userId ?? null,activityId?? null])
           .then(async data => {
                 var resultsPromise = data.map(async (obj) => {
 
