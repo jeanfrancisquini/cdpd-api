@@ -40,10 +40,10 @@ class ReleaseController{
                     .modify(function(queryBuilder) {
                 
                         if (userId != null) {
-                            queryBuilder.where({"id_usuario": userId ?? null})
+                            queryBuilder.where({"userId": userId ?? null})
                         }
                         if (activityId != null) {
-                            queryBuilder.where({"id_atividade": activityId ?? null})
+                            queryBuilder.where({"idActivity": activityId ?? null})
                         }                    
                     })
                 .table("lancamento").then(data => {
