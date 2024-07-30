@@ -16,6 +16,15 @@ class ReleaseController{
           } = request.body;
 
 
+          console.log(userId,
+            activityId,
+            value,
+            typePaymentId,
+            obs,
+            scheduleDate,
+            time,
+            isSingleLesson,
+            isAvaliation)
 
         database.raw('exec stp_grava_lancamento ?,?,?,?,?,?,?,?,?',[userId,value,activityId,typePaymentId,obs,scheduleDate,time,isSingleLesson,isAvaliation])
         .then(data => {
