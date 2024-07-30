@@ -28,8 +28,7 @@ class ReleaseController{
             activityId 
           } = request.body;
 
-          console.log(userId ,
-            activityId )
+          console.log(request.body)
 
         database.raw('exec stp_busca_lancamentos ?,?',[userId ?? null,activityId?? null])
           .then(async data => {
