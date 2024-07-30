@@ -37,15 +37,17 @@ class ReleaseController{
                         "id_atividade as idActivity",
                         "obs"
                         )
-                    .modify(function(queryBuilder) {
+                    // .modify(function(queryBuilder) {
                 
-                        if (userId != null) {
-                            queryBuilder.where({"id_aluno": userId ?? null})
-                        }
-                        if (activityId != null) {
-                            queryBuilder.where({"id_atividade": activityId ?? null})
-                        }                    
-                    })
+                    //     if (userId != null) {
+                    //         queryBuilder.where({"id_aluno": userId ?? null})
+                    //     }
+                    //     if (activityId != null) {
+                    //         queryBuilder.where({"id_atividade": activityId ?? null})
+                    //     }                    
+                    // })
+                    .where({"id_aluno": userId ?? null})
+                    .where({"id_atividade": activityId ?? null})
                 .table("lancamento").then(data => {
                     console.log(data);
                     response.json(data);
