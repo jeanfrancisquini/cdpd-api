@@ -76,46 +76,6 @@ class UserPlanController{
                 .del()
                 .table("usuario_plano")
                 .then(data => {
-                    console.log(data)
-                    //response.json({message: "Plano de usuário deletado com sucesso!"})
-                }).catch(error => {
-                    console.log(error);
-                })
-
-            database.select("id",
-                    "id_plano as idPlan",
-                    "id_usuario as idUser",
-                    "id_status_plano as idStatusPlan",
-                    "segunda as segunda",
-                    "terca as terca",
-                    "quarta as quarta",
-                    "quinta as quinta",
-                    "sexta as sexta")
-            .where({"id_plano": idPlan?? 0,"id_usuario": idUser?? 0,"id_status_plano": idStatusPlan?? 0})
-            .table("usuario_plano").then(data => {
-                
-                if(data.length > 0){
-                    database.where({id: id})
-                    .update({
-                        "id_plano":idPlan,
-                        "id_usuario":idUser,
-                        "id_status_plano":idStatusPlan,
-                        "segunda":segunda,
-                        "terca":terca,
-                        "quarta":quarta,
-                        "quinta":quinta,
-                        "sexta":sexta,
-                    })
-                    .table("usuario_plano")
-                    .then(data => {
-                        console.log(data)
-                        //response.json({message: "Plano de usuário atualizado com sucesso!"})
-                    }).catch(error => {
-                        //console.warn(request.body);
-                        //console.error("put do UserPlan");
-                        console.log(error);
-                    })
-                }else{
                     database.insert({
                         "id_plano":idPlan,
                         "id_usuario":idUser,
@@ -127,16 +87,73 @@ class UserPlanController{
                         "sexta":sexta,
                     })
                     .table("usuario_plano")
-                    .then(data => {
-                        console.log(data)
+                    .then(dt => {
+                        //console.log("Insert",idPlan)
                         //response.json({message: "Plano de usuário criado com sucesso!"})
                     }).catch(error => {
                         console.log(error);
                     })
-                }
-            }).catch(error => {
-                console.log(error);
-            })
+                }).catch(error => {
+                    console.log(error);
+                })
+
+            
+
+            // database.select("id",
+            //         "id_plano as idPlan",
+            //         "id_usuario as idUser",
+            //         "id_status_plano as idStatusPlan",
+            //         "segunda as segunda",
+            //         "terca as terca",
+            //         "quarta as quarta",
+            //         "quinta as quinta",
+            //         "sexta as sexta")
+            // .where({"id_plano": idPlan?? 0,"id_usuario": idUser?? 0,"id_status_plano": idStatusPlan?? 0})
+            // .table("usuario_plano").then(data => {
+                
+            //     if(data.length > 0){
+            //         database.where({id: id})
+            //         .update({
+            //             "id_plano":idPlan,
+            //             "id_usuario":idUser,
+            //             "id_status_plano":idStatusPlan,
+            //             "segunda":segunda,
+            //             "terca":terca,
+            //             "quarta":quarta,
+            //             "quinta":quinta,
+            //             "sexta":sexta,
+            //         })
+            //         .table("usuario_plano")
+            //         .then(data => {
+            //             console.log("Update",data)
+            //             //response.json({message: "Plano de usuário atualizado com sucesso!"})
+            //         }).catch(error => {
+            //             //console.warn(request.body);
+            //             //console.error("put do UserPlan");
+            //             console.log(error);
+            //         })
+            //     }else{
+            //         database.insert({
+            //             "id_plano":idPlan,
+            //             "id_usuario":idUser,
+            //             "id_status_plano":idStatusPlan,
+            //             "segunda":segunda,
+            //             "terca":terca,
+            //             "quarta":quarta,
+            //             "quinta":quinta,
+            //             "sexta":sexta,
+            //         })
+            //         .table("usuario_plano")
+            //         .then(data => {
+            //             console.log("Insert",data)
+            //             //response.json({message: "Plano de usuário criado com sucesso!"})
+            //         }).catch(error => {
+            //             console.log(error);
+            //         })
+            //     }
+            // }).catch(error => {
+            //     console.log(error);
+            // })
         })
         
 
