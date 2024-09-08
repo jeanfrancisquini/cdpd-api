@@ -175,6 +175,21 @@ class UserController{
     }
 
     getLogin(request,response){
+
+        database.raw('exec stp_job_checkout_automatico_depois_90',[])
+            .then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error);
+            })
+        
+        database.raw('exec stp_job_controle_diario_nao_preenchido',[])
+            .then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error);
+            })
+
         const {
             usuario,
             senha

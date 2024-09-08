@@ -39,6 +39,19 @@ class ReportController{
         })
     }
 
+    async getReportNextPlanning(request,response){
+        
+        const {data} = request.body;
+        console.log(data)
+
+        database.raw("exec stp_relatorio_proximo_planejamento",[])
+        .then(async data => {
+            response.json(data); 
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
 }
 
 module.exports = new ReportController();
