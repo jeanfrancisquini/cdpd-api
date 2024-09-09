@@ -41,10 +41,9 @@ class ReportController{
 
     async getReportNextPlanning(request,response){
         
-        const {data} = request.body;
-        console.log(data)
+        const {apenasAlertas} = request.body;
 
-        database.raw("exec stp_relatorio_proximo_planejamento",[])
+        database.raw("exec stp_relatorio_proximo_planejamento ?",[apenasAlertas])
         .then(async data => {
             response.json(data); 
         }).catch(error => {
