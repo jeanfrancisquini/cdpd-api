@@ -19,7 +19,7 @@ class NotificationController{
                         "excluido as deleted" ,
                         "id_relacionado as relatedId")
                 .table("notificacao")
-                .where({id_usuario: userId})
+                .where({id_usuario: userId,excluido: false})
                 .then(data => {
                     console.log(data);
                     notificationGetAllDTO.Notifications = (data);
@@ -48,7 +48,7 @@ class NotificationController{
 
     deleted(request,response){
         const { id } = request.body;
-        
+
         database.where({id: id})
                 .update({
                     "excluido": true
