@@ -4,6 +4,8 @@ class NotificationController{
     
     get(request,response){
 
+        const {userId} = request.query
+
         var notificationGetAllDTO = {
             Notifications: {},
             TotalNotificationNotRead: 0
@@ -17,6 +19,7 @@ class NotificationController{
                         "excluido as deleted" ,
                         "id_relacionado as relatedId")
                 .table("notificacao")
+                .where({id_usuario: userId})
                 .then(data => {
                     console.log(data);
                     notificationGetAllDTO.Notifications = (data);
