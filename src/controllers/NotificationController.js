@@ -31,15 +31,11 @@ class NotificationController{
     }
 
     read(request,response){
-        const {
-                id ,
-                read ,} = request.body;
-
-        read = Date(); 
+        const { id } = request.body;
 
         database.where({id: id})
                 .update({
-                    "lido": read
+                    "lido": new Date()
                 })
                 .table("notificacao")
                 .then(data => {
@@ -51,15 +47,11 @@ class NotificationController{
     }
 
     deleted(request,response){
-        const {
-                id ,
-                deleted ,} = request.body;
-
-        deleted = true; 
-
+        const { id } = request.body;
+        
         database.where({id: id})
                 .update({
-                    "excluido": deleted
+                    "excluido": true
                 })
                 .table("notificacao")
                 .then(data => {
