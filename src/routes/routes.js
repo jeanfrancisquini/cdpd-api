@@ -176,8 +176,8 @@ router.post('/api/Report/GetReportNextPlanning',ReportController.getReportNextPl
 
 //#region notificacao
 router.get('/api/Notification',NotificationController.get);
-router.get('/api/Notification/Read',NotificationController.read);
-router.get('/api/Notification/Deleted',NotificationController.deleted);
+router.post('/api/Notification/Read',NotificationController.read);
+router.post('/api/Notification/Deleted',NotificationController.deleted);
 //#endregion
 
 //#region agendamento
