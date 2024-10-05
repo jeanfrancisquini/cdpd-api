@@ -322,6 +322,17 @@ class UserController{
         })
     }
 
+    GetDashboardRemoto(request,response){
+        const {id} = request.query
+
+        database.raw('exec stp_dashboard_remoto ?',[id])
+        .then(data => {
+            response.json(data[0]);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
     ResetPassword(request,response){
         //const {id} = request.query
         const {

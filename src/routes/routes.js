@@ -206,7 +206,10 @@ router.post('/api/User/Login',UserController.getLogin);
 router.get('/api/User/GetUser',UserController.getUser);
 router.delete('/api/User/UserDelete',UserController.UserDelete);
 router.get('/api/User/GetDashboard',UserController.GetDashboard);
+router.get('/api/User/GetDashboardRemoto',UserController.GetDashboardRemoto);
 router.post('/api/User/ResetPassword',UserController.ResetPassword);
+
+
 // router.get('/api/cron',cron.default);
 // router.post('/api/cron',cron.default);
 //#endregion
