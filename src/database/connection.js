@@ -6,7 +6,8 @@ const knex = require('knex')({
     user: "admin",
     password: "x5Cjy4fPe5IL5fh",
     database: "cdpd-database"    
-  }
+  },
+  acquireConnectionTimeout: 60000, // 60 segundos, por exemplo
 });
 
 // const knex = require('knex')({
