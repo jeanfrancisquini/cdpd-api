@@ -63,7 +63,7 @@ class UserController {
         "data_saida as exitDate",
         "obs as obs",
         "sexo as sex",
-        "chave_externa as externalKey"
+        "chave_externa as externalKey",
       )
       .table("usuario")
       .whereNotIn("id_tipo_usuario", [6, 7]);
@@ -79,7 +79,8 @@ class UserController {
           "terca as terca",
           "quarta as quarta",
           "quinta as quinta",
-          "sexta as sexta"
+          "sexta as sexta",
+          "sabado as sabado",
         )
         .table("usuario_plano")
         .where({ id_usuario: obj.id });
@@ -94,7 +95,7 @@ class UserController {
             "preco as price",
             "id_atividade as idActivity",
             "id_periodo as idPeriod",
-            "valor_proporcional as valorProporcional"
+            "valor_proporcional as valorProporcional",
           )
           .table("def_plano")
           .where({ id: obj2.idPlan });
@@ -219,7 +220,7 @@ class UserController {
         "data_saida as exitDate",
         "obs as obs",
         "sexo as sex",
-        "chave_externa as externalKey"
+        "chave_externa as externalKey",
       )
       .table("usuario")
       .where({ usuario: usuario, senha: senha })
@@ -256,7 +257,7 @@ class UserController {
         "data_saida as exitDate",
         "obs as obs",
         "sexo as sex",
-        "chave_externa as externalKey"
+        "chave_externa as externalKey",
       )
       .table("usuario")
       .where({ id: id })
@@ -273,7 +274,8 @@ class UserController {
           "terca as terca",
           "quarta as quarta",
           "quinta as quinta",
-          "sexta as sexta"
+          "sexta as sexta",
+          "sabado as sabado",
         )
         .table("usuario_plano")
         .where({ id_usuario: obj.id });
@@ -288,7 +290,7 @@ class UserController {
             "preco as price",
             "id_atividade as idActivity",
             "id_periodo as idPeriod",
-            "valor_proporcional as valorProporcional"
+            "valor_proporcional as valorProporcional",
           )
           .table("def_plano")
           .where({ id: obj2.idPlan });
