@@ -1,11 +1,10 @@
-
-const knex = require('knex')({
-  client: 'mssql',
+const knex = require("knex")({
+  client: "mssql",
   connection: {
-    server: "cdpd-db.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
+    server: "cdpd-restored.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
     user: "admin",
     password: "x5Cjy4fPe5IL5fh",
-    database: "cdpd-database"    
+    database: "cdpd-database",
   },
   acquireConnectionTimeout: 60000, // 60 segundos, por exemplo
 });
@@ -17,8 +16,8 @@ const knex = require('knex')({
 //     port: 3306,
 //     user: "digi7412_jean",
 //     password: "AliciaMiguel@@11282526",
-//     database: "digi7412_cdpdDB"        
+//     database: "digi7412_cdpdDB"
 //   }
 // });
 
-module.exports = knex
+module.exports = knex;
