@@ -1,7 +1,7 @@
 const knex = require("knex")({
   client: "mssql",
   connection: {
-    server: "cdpd-db-prod.c1qhsihaqmhn.us-east-2.rds.amazonaws.com,1433",
+    server: "cdpd-db-prod.c1qhsihaqmhn.us-east-2.rds.amazonaws.com",
     user: "admin",
     password: "x5Cjy4fPe5IL5fh",
     database: "cdpd-database",
