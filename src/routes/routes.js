@@ -173,6 +173,10 @@ router.delete(
   "/api/PlanningMacrocycleMonthDatasCharacteristics",
   PlanningMacrocycleMonthDatasCharacteristicsController.delete,
 );
+router.patch(
+  "/api/PlanningMacrocycleMonthDatasCharacteristics/AtualizaObs",
+  PlanningMacrocycleMonthDatasCharacteristicsController.patchObs,
+);
 //#endregion
 
 //#region planejamento_historico_patologico
