@@ -1196,6 +1196,7 @@ class PlanningController {
       numberSubstitution,
       idProfile,
       externalKey,
+      status,
       planningAnamneses,
       planningPathologicalHistories,
       planningPosturalEvaluations,
@@ -1220,6 +1221,7 @@ class PlanningController {
         numero_substituicao: numberSubstitution,
         id_perfil: idProfile,
         chave_externa: externalKey,
+        status: status ?? 1,
       })
       .table("planejamento");
 

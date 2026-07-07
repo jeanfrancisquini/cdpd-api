@@ -103,6 +103,16 @@ class UserPlanController {
               .then((dt) => {
                 //console.log("Insert",idPlan)
                 //response.json({message: "Plano de usuário criado com sucesso!"})
+                database
+                  .raw("exec stp_reprocessa_agendamento_plano ?", [
+                    idUser ?? null,
+                  ])
+                  .then((data) => {
+                    console.log(data);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
               })
               .catch((error) => {
                 console.log(error);
