@@ -49,6 +49,40 @@ class PlanningController {
       });
   }
 
+  updateStatus(request, response) {
+    const { id, status } = request.body;
+
+    if (!id || status === undefined) {
+      return response
+        .status(400)
+        .json({ message: "ID e status são obrigatórios" });
+    }
+
+    if (![1, 2, 3].includes(status)) {
+      return response
+        .status(400)
+        .json({
+          message: "Status deve ser 1 (Ativo), 2 (Finalizado) ou 3 (Cancelado)",
+        });
+    }
+
+    database
+      .table("planejamento")
+      .where({ id: id })
+      .update({ status: status })
+      .then((data) => {
+        if (data === 0) {
+          return response.status(404).json({ message: "Planejamento não encontrado" });
+        }
+
+        response.json({ message: "Status atualizado com sucesso", id, status });
+      })
+      .catch((error) => {
+        console.log(error);
+        response.status(500).json({ message: "Erro ao atualizar status", error });
+      });
+  }
+
   post(request, response) {
     const {
       description,
@@ -506,6 +540,7 @@ class PlanningController {
         "numero_substituicao as numberSubstitution",
         "id_perfil as idProfile",
         "chave_externa as externalKey",
+        "status as status",
       )
       .table("planejamento");
 

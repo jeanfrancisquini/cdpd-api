@@ -245,6 +245,7 @@ router.delete(
 );
 router.delete("/api/Planning", PlanningController.delete);
 router.post("/api/Planning/AlterProfile", PlanningController.AlterProfile);
+router.patch("/api/Planning/Status", PlanningController.updateStatus);
 router.post("/api/Planning", PlanningController.post);
 router.post("/api/Planning/MacrocicloNew", PlanningController.MacrocicloNew);
 router.get("/api/Planning", PlanningController.get);
